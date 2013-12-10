@@ -1,0 +1,63 @@
+1.DST protocal
+
+		========DST request========
+		header：
+		cmd int 4
+		cltid int 4
+		cltkey int 4
+
+		body
+		if(cmd==1)//
+		{
+			DeviceId int 4; 
+			ChannelId int 4;
+			interval int 4;
+			ts_data_len int 4;
+			for(i=0;i<ts_data_len ;i++)
+			{
+				char
+			}
+		}
+		if(cmd==10)
+		{
+			empty body
+		}
+
+
+		========DST resp========
+		if (cmd==1)||(cmd==2)
+		{
+			return_code int 4;
+		：
+		}
+		if(cmd=50)
+
+
+
+
+========cmd类型=========
+
+1:create a task like sending a table
+10:cancel a task
+50:query task info
+
+
+========返回值=====
+
+0:	ok
+10creating cltid.ts file failed
+11:	writing cltid.ts file failed
+20：MMAP is full
+30: task is already running
+
+
+questions:
+you need to check it's it emply space when ts buffer arrive to it's max and you prepare to start over again
+
+
+
+distribute a ts file:
+./client_tsfile 1 112 333 50 ../exp_ts_file/NIT.ts
+cancel a task
+./client_tsfile 10 112 333
+	
